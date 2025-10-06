@@ -1,0 +1,60 @@
+<%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+    <main class="container mx-auto bg-white shadow-lg rounded-lg p-6 mt-8 max-w-3xl">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Left side - Image -->
+        <div class="rounded-lg overflow-hidden">
+          <img src="https://www.shutterstock.com/shutterstock/photos/2376758765/display_1500/stock-photo-booking-airbnb-pleace-for-rest-lake-forest-2376758765.jpg" 
+               alt="<%= home.houseName %>" 
+               class="w-full h-[300px] object-cover rounded-lg shadow-md"
+          />
+        </div>
+
+        <!-- Right side - Details -->
+        <div class="space-y-3">
+          <h1 class="text-2xl font-bold text-gray-800"><%= home.houseName %></h1>
+          
+          <div class="flex items-center space-x-2">
+            <span class="text-yellow-500">⭐ <%= home.rating %></span>
+            <span class="text-gray-500">• Superhost</span>
+          </div>
+
+          <div class="border-t border-b py-3 my-3">
+            <h2 class="text-lg font-semibold mb-2">Property Details</h2>
+            <div class="space-y-2">
+              <p class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="text-gray-700"><%= home.location %></span>
+              </p>
+              <p class="flex items-center gap-2">
+                <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"></svg>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+                <span class="text-gray-700">$<%= home.price %> per night</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="space-y-3">
+            <h2 class="text-lg font-semibold">Description</h2>
+            <p class="text-gray-600 text-sm"></p>
+              Experience luxury and comfort in this beautiful home. Perfect for both short and long stays.
+            </p>
+          </div>
+
+          <button class="w-full bg-red-500 text-white py-2 px-4 rounded-lg font-semibold hover:bg-red-600 transition duration-300">
+            Book this place
+          </button>
+
+     <%- include('../partials/favourite') %>
+          
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
