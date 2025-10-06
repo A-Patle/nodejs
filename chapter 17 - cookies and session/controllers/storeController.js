@@ -2,11 +2,12 @@ const Favourite = require('../models/favourite');
 const Home = require('../models/home');
 
 exports.getIndex = (req, res, next) => {
-  Home.fetchAll.then((registeredHouse) => {
+  Home.find().then((registeredHouse) => {
     res.render('store/index', {
       registeredHouse,
       pageTitle: 'airbnb Home',
       currentPage: 'index',
+      isLoggedIn: req.isLoggedIn,
     });
   });
 };
@@ -17,6 +18,7 @@ exports.getHomes = (req, res, next) => {
       registeredHouse,
       pageTitle: 'Homes List',
       currentPage: 'home',
+      isLoggedIn: req.isLoggedIn,
     });
   });
 };
@@ -25,6 +27,7 @@ exports.getBookings = (req, res, next) => {
   res.render('store/bookings', {
     pageTitle: 'Your Bookings',
     currentPage: 'bookings',
+    isLoggedIn: req.isLoggedIn,
   });
 };
 
@@ -37,6 +40,7 @@ exports.getFavouriteList = (req, res, next) => {
         favouriteHouse,
         pageTitle: 'Favourite List',
         currentPage: 'favouriteList',
+        isLoggedIn: req.isLoggedIn,
       });
     });
 };
@@ -90,6 +94,7 @@ exports.getHomeDetails = (req, res, next) => {
         home: home,
         pageTitle: 'Homes Details',
         currentPage: 'home',
+        isLoggedIn: req.isLoggedIn,
       });
     }
   });
