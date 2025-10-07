@@ -37,7 +37,7 @@ app.use(
 );
 app.use((req, res, next) => {
   req.isLoggedIn = req.session.isLoggedIn;
-  console.log('cookie check middleware', req.get('Cookie'));
+  // console.log('cookie check middleware', req.get('Cookie'));
   next();
 });
 

@@ -6,7 +6,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "tailwind": "npx tailwindcss -i ./views/input.css -o ./public/output.css --watch",
     "start": "nodemon app.js",
-    "dev": "sh -c \"npm run tailwind & npm run start\""
+    "dev": "powershell -Command \"Start-Job { npm run tailwind }; npm run start\""
   },
   "author": "",
   "license": "ISC",
@@ -19,11 +19,13 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.1.14",
+    "bcryptjs": "^3.0.2",
     "body-parser": "^2.2.0",
     "connect-mongodb-session": "^5.0.0",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
     "express-session": "^1.18.2",
+    "express-validator": "^7.2.1",
     "mongodb": "^6.20.0",
     "mongoose": "^8.19.0"
   }

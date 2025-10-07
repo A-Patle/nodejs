@@ -1,6 +1,6 @@
 <%- include('../partials/head') %>
   </head>
-  <body>
+  <body class="bg-gray-50"></body>
     <%- include('../partials/nav') %>
     <main class="container mx-auto bg-white shadow-lg rounded-lg p-8 mt-10 max-w-xl">
       <h2 class="text-3xl text-red-500 font-bold text-center mb-6">
@@ -9,7 +9,7 @@
       <ul class="space-y-4">
           <% registeredHouse.forEach(home => { %>
         <li class="bg-gray-100 p-4 rounded-lg shadow-md hover:shadow-lg transition duration-300 flex gap-4 items-center">
-        <img src="https://www.shutterstock.com/shutterstock/photos/2376758765/display_1500/stock-photo-booking-airbnb-pleace-for-rest-lake-forest-2376758765.jpg" 
+        <img src="<%= home.photoUrl %>" 
      alt="<%= home.houseName %> photo" 
      class="object-cover rounded-md border"
      style="width: 64px; height: 64px;" />

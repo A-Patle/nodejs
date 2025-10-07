@@ -1,32 +1,83 @@
 <%- include('../partials/head') %>
-  </head>
-  <body>
-    <%- include('../partials/nav') %>
-    <main class="container mx-auto mt-8 p-8 bg-white rounded-lg shadow-md">
-      <h1 class="text-3xl font-bold mb-6 text-center text-gray-800">Login</h1>
-      <form action="/login" method="POST" class="max-w-md mx-auto">
-        <input
-          type="text"
-          name="userName"
-          placeholder="Enter your username/email"
-          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-          required
-        />
+  <style>
+    body {
+      background-color: #f3f4f6;
+    }
+    .login-container {
+      max-width: 480px;
+      margin: 4rem auto;
+      padding: 2.5rem;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    .form-title {
+      font-size: 2.25rem;
+      color: #1f2937;
+      margin-bottom: 2rem;
+      text-align: center;
+      font-weight: 700;
+    }
+    .input-field {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      margin-bottom: 1.25rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
+    }
+    .input-field:focus {
+      outline: none;
+      border-color: #ef4444;
+      box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
+    }
+    .submit-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: #ef4444;
+      color: white;
+      border: none;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .submit-btn:hover {
+      background: #dc2626;
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+  <%- include('../partials/nav') %>
+  <main class="login-container">
+    <h1 class="form-title">Welcome Back</h1>
+    <form action="/login" method="POST">
+        <%- include('../partials/errors') %>
+      <input
+        type="email"
+        name="email"
+        placeholder="Email"
+        class="input-field"
+        value="<%= oldInput.email ? oldInput.email : '' %>"
+        required
+      />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter your password"
-          class="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
-          required
-        />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        class="input-field"
+        required
+      />
 
-        <input 
-          type="submit" 
-          value="Login" 
-          class="w-full bg-red-500 text-white py-2 rounded-md hover:bg-red-600 transition duration-300" 
-        />
-      </form>
-    </main>
-  </body>
+      <button 
+        type="submit" 
+        class="submit-btn"
+      >
+        Sign In
+      </button>
+    </form>
+  </main>
+</body>
 </html>

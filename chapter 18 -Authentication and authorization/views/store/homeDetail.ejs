@@ -1,12 +1,12 @@
 <%- include('../partials/head') %>
   </head>
-  <body>
+  <body class="bg-gray-50"></body>
     <%- include('../partials/nav') %>
     <main class="container mx-auto bg-white shadow-lg rounded-lg p-6 mt-8 max-w-3xl">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <!-- Left side - Image -->
         <div class="rounded-lg overflow-hidden">
-          <img src="https://www.shutterstock.com/shutterstock/photos/2376758765/display_1500/stock-photo-booking-airbnb-pleace-for-rest-lake-forest-2376758765.jpg" 
+          <img src="<%= home.photoUrl %>" 
                alt="<%= home.houseName %>" 
                class="w-full h-[300px] object-cover rounded-lg shadow-md"
           />

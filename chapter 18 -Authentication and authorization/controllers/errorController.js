@@ -4,5 +4,6 @@ exports.errorController = (req, res, next) => {
     pageTitle: 'Page not Found',
     currentPage: '404',
     isLoggedIn: req.isLoggedIn,
+    user: req.session.user,
   });
 };
