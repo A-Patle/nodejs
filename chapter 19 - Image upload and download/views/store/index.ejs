@@ -1,0 +1,53 @@
+<%- include('../partials/head') %>
+</head>
+<body class="bg-gray-50 min-h-screen">
+  <%- include('../partials/nav') %>
+
+  <main class="container mx-auto px-6 py-10">
+    <h2 class="text-4xl font-extrabold text-center text-rose-500 mb-10">
+      Welcome to Airbnb Listings
+    </h2>
+
+    <!-- Grid Layout: 2 cards per row -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center ml-10">
+      <% registeredHouse.forEach(home => { %>
+        <div class="w-full max-w-md bg-white rounded-2xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden border border-gray-100 text-center">
+          
+          <!-- Image -->
+          <img 
+            src="<%= home.photoUrl || 'https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg' %>"
+            alt="<%= home.houseName %> photo" 
+            class="h-64 w-full object-cover"
+          />
+
+          <!-- Content -->
+          <div class="p-5 space-y-2">
+            <h3 class="text-2xl font-semibold text-gray-800 truncate">
+              <%= home.houseName %>
+            </h3>
+            <p class="text-gray-600 text-sm">
+              📍 <span class="font-medium"><%= home.location %></span>
+            </p>
+            <p class="text-gray-600 text-sm">
+              💰 <span class="font-medium">₹<%= home.price %> / night</span>
+            </p>
+            <p class="text-yellow-500 font-semibold text-sm">
+              ⭐ <%= home.rating %> / 5
+            </p>
+            <p class="text-gray-600 text-sm leading-snug line-clamp-2">
+              <%= home.description %>
+            </p>
+          </div>
+
+          <!-- Button -->
+          <div class="p-5 pt-0">
+            <button class="w-1/2 bg-rose-500 text-white py-2 rounded-lg hover:bg-rose-600 transition duration-200">
+              Book Now
+            </button>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+</body>
+</html>
