@@ -4,6 +4,7 @@ const path = require('path');
 //external module
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 // mongoUrl for atlas
 const mongoUrl =
@@ -11,12 +12,15 @@ const mongoUrl =
 
 //local module
 const { errorController } = require('./controllers/errorController');
+const todoItemRouter = require('./routes/todoItemsRouter');
 
 const app = express();
 
-app.use(express.urlencoded());
-app.use(express.static(path.join(rootPath, 'public')));
-
+app.use(express.urlencoded({ extended: true }));
+// app.use(express.static(path.join(rootPath, 'public')));
+app.use(cors());
+app.use(express.json());
+app.use('/api/todo', todoItemRouter);
 app.use(errorController);
 
 const PORT = 3000;
